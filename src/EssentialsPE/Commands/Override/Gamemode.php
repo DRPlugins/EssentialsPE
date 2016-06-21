@@ -58,7 +58,7 @@ class Gamemode extends BaseOverrideCommand{
             return false;
         }
         if(isset($args[1]) && !($player = $this->getAPI()->getPlayer($args[1]))){
-            $sender->sendMessage(TextFormat::RED . "[Error] Player not found");
+            $sender->sendMessage(TextFormat::RED . "§bD§5R§8 >> §8  Player not found");
             return false;
         }
 
@@ -75,7 +75,7 @@ class Gamemode extends BaseOverrideCommand{
                     $gm = $args[0];
                     break;
                 default:
-                    $sender->sendMessage(TextFormat::RED . "[Error] Please specify a valid gamemode");
+                    $sender->sendMessage(TextFormat::RED . "§bD§5R§8 >> §8 Please specify a valid gamemode");
                     return false;
                     break;
             }
@@ -101,20 +101,20 @@ class Gamemode extends BaseOverrideCommand{
                     $gm = Player::SPECTATOR;
                     break;
                 default:
-                    $sender->sendMessage(TextFormat::RED . "[Error] Please specify a valid gamemode");
+                    $sender->sendMessage(TextFormat::RED . "§bD§5R§8 >> §8 Please specify a valid gamemode");
                     return false;
                     break;
             }
         }
         $gmstring = $this->getAPI()->getServer()->getGamemodeString($gm);
         if($player->getGamemode() === $gm){
-            $sender->sendMessage(TextFormat::RED . "[Error] " . ($player === $sender ? "You're" : $player->getDisplayName() . " is") . " already in " . $gmstring . " mode");
+            $sender->sendMessage(TextFormat::RED . "§bD§5R§8 >> §8 " . ($player === $sender ? "You're" : $player->getDisplayName() . " is") . " already in " . $gmstring . " mode");
             return false;
         }
         $player->setGamemode($gm);
-        $player->sendMessage(TextFormat::YELLOW . "You're now in " . $gmstring . " mode");
+        $player->sendMessage(TextFormat::YELLOW . "§bD§5R§8 >> §8You're now in " . $gmstring . " mode");
         if($player !== $sender){
-            $sender->sendMessage(TextFormat::GREEN . $player->getDisplayName() . " is now in " . $gmstring . " mode");
+            $sender->sendMessage(TextFormat::GREEN . "§bD§5R§8 >> §8" . $player->getDisplayName() . " is now in " . $gmstring . " mode");
         }
         return true;
     }
