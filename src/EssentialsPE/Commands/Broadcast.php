@@ -29,7 +29,7 @@ class Broadcast extends BaseCommand{
             $this->sendUsage($sender, $alias);
             return false;
         }
-        $sender->getServer()->broadcastMessage(TextFormat::LIGHT_PURPLE . "[Broadcast] " . TextFormat::RESET . implode(" ", $args));
+        $sender->getServer()->broadcastMessage(TextFormat::LIGHT_PURPLE . "§bD§5R§8 >> §b " . TextFormat::RESET . implode(" ", $args));
         return true;
     }
 }
